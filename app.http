@@ -1,0 +1,17 @@
+GET http://127.0.0.1:8000/
+
+###
+GET http://127.0.0.1:8000/games
+
+###
+GET http://127.0.0.1:8000/games/1
+
+###
+POST http://127.0.0.1:8000/games
+Content-Type: application/json; 
+
+{
+"name": "GTA Vicity",
+"price": 23.99,
+"releaseDate": "2003-04-17"
+}
