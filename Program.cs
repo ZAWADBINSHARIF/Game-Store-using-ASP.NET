@@ -50,4 +50,53 @@ app.MapPost("/games", (CreateGameDto newGame) =>
     return Results.CreatedAtRoute(GetGameEndPointName, new { id = game.id }, game);
 });
 
+app.MapPut("/games/{id}", (int id, UpdateGameDto updateGame) =>
+{
+    var updateGameIndex = games.FindIndex(item => item.id == id);
+
+    if (updateGameIndex == -1)
+    {
+        return Results.NotFound(new { message = "Game not found" });
+    }
+
+    games[updateGameIndex] = new GameDto(
+    id,
+    name: updateGame.name,
+    price: updateGame.price,
+    releaseDate: updateGame.releaseDate
+    );
+
+    return Results.Json(
+        new
+        {
+            message = "Item has been updated",
+            data = games[updateGameIndex]
+        }
+        );
+
+});
+
+
+app.MapDelete("/games/{id}", (int id) =>
+{
+    var updateGameIndex = games.FindIndex(item => item.id == id);
+
+    if (updateGameIndex == -1)
+    {
+        return Results.NotFound(new { message = "Game not found" });
+    }
+
+    games.RemoveAll(item => item.id == id);
+
+    return Results.Json(
+        new
+        {
+            message = "Item has been removed"
+        }
+        );
+
+});
+
+
+
 app.Run();
