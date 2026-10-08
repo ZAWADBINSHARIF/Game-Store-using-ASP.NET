@@ -1,9 +1,11 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace FirstProjects.Dtos;
 
-public record class GameDto(
+public record class GameDetailsDto(
     int id,
     string name,
-    int GenreId,
+    string? Genre,
     decimal price,
     DateOnly releaseDate
 );

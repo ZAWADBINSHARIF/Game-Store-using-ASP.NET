@@ -4,7 +4,7 @@ GET http://127.0.0.1:8000/
 GET http://127.0.0.1:8000/games
 
 ###
-GET http://127.0.0.1:8000/games/12
+GET http://127.0.0.1:8000/games/2
 
 ###
 POST http://127.0.0.1:8000/games
@@ -13,18 +13,20 @@ Content-Type: application/json;
 {
 "name": "GTA Vicity",
 "price": 23.99,
+"genreId": 3,
 "releaseDate": "2003-04-17"
 }
 
 ###
-PUT http://127.0.0.1:8000/games/12
+PUT http://127.0.0.1:8000/games/2
 Content-Type: application/json; 
 
 {
-"name": "GTA Vicity",
-"price": 24.99,
-"releaseDate": "2003-04-17"
+"name": "Grand Theif Auto",
+"price": 59.99,
+"genreId": 1,
+"releaseDate": "2001-04-17"
 }
 
 ###
-DELETE  http://127.0.0.1:8000/games/12
+DELETE  http://127.0.0.1:8000/games/4
